@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Field from "./components/field";
+import Languages from "./components/languages";
 import Translate from "./components/translate";
-import { Languages } from "./components/Languages";
 
 import "./styles.css";
 

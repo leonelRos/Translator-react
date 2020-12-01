@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState } from "react";
 
 const LANGUAGES = [
@@ -13,6 +15,7 @@ const LANGUAGES = [
   { label: "Swahili", value: "sw" },
   { label: "Thai", value: "th" }
 ];
+
 const Languages = ({ language, onLanguageChange }) => {
   if (language === undefined) {
     language = "es";
@@ -23,18 +26,20 @@ const Languages = ({ language, onLanguageChange }) => {
   }
 
   const [open, setOpen] = useState(false);
+
   const onSelect = (language) => {
     setOpen(false);
     onLanguageChange(language);
   };
+
   return (
     <div>
-      <label>Select Languages</label>
-      <div className={`deopdown ${open && "is-active"}`}>
+      <label className="label">Select Language</label>
+      <div className={`dropdown ${open && "is-active"}`}>
         <div className="dropdown-trigger">
           <button className="button" onClick={() => setOpen(!open)}>
             <span>{languageConfig.label}</span>
-            <span className=" icon is-small">
+            <span className="icon is-small">
               <i className="fas fa-angle-down" />
             </span>
           </button>
@@ -44,7 +49,8 @@ const Languages = ({ language, onLanguageChange }) => {
             {LANGUAGES.map(({ label, value }) => {
               return (
                 <a
-                  href="*"
+                  key={label}
+                  href="#"
                   onClick={() => onSelect(value)}
                   className="dropdown-item"
                 >
@@ -58,4 +64,5 @@ const Languages = ({ language, onLanguageChange }) => {
     </div>
   );
 };
+
 export default Languages;
